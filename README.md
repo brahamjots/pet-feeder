@@ -25,8 +25,8 @@ Instructions:
   cd /root/expres
   nohup node server.js &
   
- The program should be running now.
- To access the webpage, enter the public IP address of the ec2 server followed by the port number 3000. For example, 192.168.23.32:3000
- Make sure to use http, not https.
+The program should be running now.
+To access the webpage, enter the public IP address of the ec2 server followed by the port number 3000. For example, 192.168.23.32:3000
+Make sure to use http, not https.
  
- When the button is clicked, the motor activates and pet-food drops into the bowl.
+When the button is clicked, the motor activates and pet-food drops into the bowl.
