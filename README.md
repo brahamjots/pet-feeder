@@ -5,26 +5,26 @@ The Pet-feeder is a system that allows you to remotely feed your pet using a Ras
 To get started with the Pet-feeder, you will need to follow the instructions below.
 
 ## Hardware:
-. Raspberry Pi 4
-. Upside-down plastic bottle to store pet food
-. Servo motor connected to a plastic lid at the mouth of the plastic bottle.
-. GPIO pin 18 is being used to control the motor.
+- Raspberry Pi 4
+- Upside-down plastic bottle to store pet food
+- Servo motor connected to a plastic lid at the mouth of the plastic bottle.
+- GPIO pin 18 is being used to control the motor.
 
 ## Software:
-. AWS IoT thing
-. Raspberry Pi - Backend code for subscribing to IoT topic and controlling Servo motor via Raspberry Pi Pins.
-. AWS EC2 - Frontend code for publishing to IoT topic by clicking a button on a webpage.
+- AWS IoT thing
+- Raspberry Pi - Backend code for subscribing to IoT topic and controlling Servo motor via Raspberry Pi Pins.
+- AWS EC2 - Frontend code for publishing to IoT topic by clicking a button on a webpage.
 
 ## Architecture:
-. Expres Server on EC2.
-. To keep the server.js program (i.e. webpage) running as a background process, I used the statement, "nohup node server.js &".
-. To keep the petfeeder.py program (i.e. backend) running as a background process, I used the statement, "nohup python3 petfeeder.py &".
+- Expres Server on EC2.
+- To keep the server.js program (i.e. webpage) running as a background process, I used the statement, "nohup node server.js &".
+- To keep the petfeeder.py program (i.e. backend) running as a background process, I used the statement, "nohup python3 petfeeder.py &".
 
 ## Instructions:
-. On Raspberry Pi, open a terminal and enter the following commands:
+- On Raspberry Pi, open a terminal and enter the following commands:
   cd Desktop
   nohup python3 petfeeder.py &
-. On EC2 terminal (SSH), enter the following commands: 
+- On EC2 terminal (SSH), enter the following commands: 
   sudo su
   cd /root/expres
   nohup node server.js &
