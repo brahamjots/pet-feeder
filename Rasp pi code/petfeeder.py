@@ -3,6 +3,7 @@ import AWSIoTPythonSDK.MQTTLib as AWSIoTPyMQTT
 import RPi.GPIO as GPIO
 
 # Set up GPIO for servo control
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
 
@@ -19,15 +20,15 @@ def custom_callback(client, userdata, message):
 
     if payload == "1":
         print("Moving servo to 90 degrees")
-        pwm = GPIO.PWM(11, 50)
+        pwm = GPIO.PWM(18, 50)
         pwm.start(0)
         duty = 2.5 + 90 / 18
-        GPIO.output(11, True)
+        GPIO.output(18, True)
         pwm.ChangeDutyCycle(duty)
         time.sleep(1)
         print("Moving servo back to start")
-        duty = 2.5 + 0 / 18
-        GPIO.output(11, True)
+        duty = 2.5 + 10 / 18
+        GPIO.output(18, True)
         pwm.ChangeDutyCycle(duty)
         time.sleep(1)
         pwm.stop()
@@ -37,7 +38,7 @@ def custom_callback(client, userdata, message):
 
 # Connect to AWS IoT MQTT broker and subscribe to topic
 iot_client.connect()
-iot_client.subscribe("my_topic", 1, custom_callback)
+iot_client.subscribe("pet/feeder", 1, custom_callback)
 
 # Wait for messages
 while True:
