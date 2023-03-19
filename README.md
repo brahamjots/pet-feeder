@@ -13,3 +13,4 @@ Software:
 Architecture:
 - Apache Server on EC2.
 - Code stored on GitHub.
+- To keep the server.js program (i.e. webpage) running as a background process, I used the statement, "nohup node server.js &".
